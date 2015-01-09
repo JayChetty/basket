@@ -15,4 +15,25 @@ class SavingCalculator
     end
     true
   end
+
+  def found_offers(items)
+    copy_items = Array.new(items)
+    found_offers = []
+    @offers.each do |offer|
+      might_find_offer = true
+      while might_find_offer
+        if offer_found(offer,copy_items)
+          found_offers.push(offer)
+          #remove the items that triggered the offer so dont duplicated offers
+          offer.items.each do |item|
+            index = copy_items.index(item)
+            copy_items.delete_at(index)
+          end
+        else
+          might_find_offer = false
+        end
+      end
+    end
+    found_offers
+  end
 end

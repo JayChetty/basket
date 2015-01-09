@@ -54,13 +54,48 @@ describe "SavingCalculator" do
     items.should == [apple, apple]
   end 
 
-  # it "should be able to find offers that match a given list of items" do
-  #   choco = Item.new(1, "Choco", 100)
-  #   apple = Item.new(1, "Apple", 50)
-  #   offer1 = Offer.new([choco,choco], 150)
-  #   offer2 = Offer.new([apple,apple], 75)
-  #   offers = [offer1,offer2]
-  #   saving_calc = SavingCalculator.new(offers)
-  #   saving_calc.found_offers.should == [offer1]
-  # end    
+  it "should be able to find offers that match a given list of items" do
+    choco = Item.new(1, "Choco", 100)
+    apple = Item.new(1, "Apple", 50)
+    offer1 = Offer.new([choco,choco], 150)
+    offer2 = Offer.new([apple,apple], 75)
+    offers = [offer1,offer2]
+    items = [apple, apple]
+    saving_calc = SavingCalculator.new(offers)
+    saving_calc.found_offers(items).should == [offer2]
+  end
+
+  it "should be able to find offers that match a given list of items" do
+    choco = Item.new(1, "Choco", 100)
+    apple = Item.new(1, "Apple", 50)
+    offer1 = Offer.new([choco,choco], 150)
+    offer2 = Offer.new([apple,apple], 75)
+    offers = [offer1,offer2]
+    items = [apple, choco, apple, choco]
+    saving_calc = SavingCalculator.new(offers)
+    saving_calc.found_offers(items).should == [offer1, offer2]
+  end
+
+  it "should be able to find offers that match a given list of items" do
+    choco = Item.new(1, "Choco", 100)
+    apple = Item.new(1, "Apple", 50)
+    offer1 = Offer.new([choco,choco], 150)
+    offer2 = Offer.new([apple,apple], 75)
+    offers = [offer1,offer2]
+    items = [apple, choco, apple, choco, apple]
+    saving_calc = SavingCalculator.new(offers)
+    saving_calc.found_offers(items).should == [offer1, offer2]
+  end
+
+  it "should be able to find offers that match a given list of items" do
+    choco = Item.new(1, "Choco", 100)
+    apple = Item.new(1, "Apple", 50)
+    offer1 = Offer.new([choco,choco], 150)
+    offer2 = Offer.new([apple,apple], 75)
+    offers = [offer1,offer2]
+    items = [apple, choco, apple, choco, apple, apple]
+    saving_calc = SavingCalculator.new(offers)
+    saving_calc.found_offers(items).should == [offer1, offer2, offer2]
+  end  
+
 end

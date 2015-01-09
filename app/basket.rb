@@ -22,7 +22,7 @@ class Basket
   end
 
   def discount_saving
-    saving = @saving_calculator.amount_saved(@items)
+    @saving_calculator.amount_saved(@items)
   end
 
   def total_price_with_saving

@@ -25,7 +25,7 @@ describe Basket do
 
   it "should give discount saving" do
     @saving_calculator.should_receive(:amount_saved).and_return(50)
-    @basket.discount_saving()
+    @basket.discount_saving.should == 50
   end 
 
   it "should give total amount with saving" do

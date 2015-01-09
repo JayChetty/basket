@@ -12,7 +12,7 @@ describe "checking out a basket" do
     @orange = Item.new(3, "Orange", 75)
     @drink = Item.new(4, "Drink", 150)
 
-    @bogof_choc = Offer.new([@choc,@choc], 100)#saving 100
+    @bogof_choc = Offer.new([@choco,@choco], 100)#saving 100
     @drink_orange_two_pounds = Offer.new([@orange,@drink], 200)#saving 25
 
     @offers = [@bogof_choc, @drink_orange_two_pounds]
@@ -28,5 +28,14 @@ describe "checking out a basket" do
     @basket.discount_saving.should == 0
     @basket.total_price_with_saving.should == 100
   end
+
+  it "should pick up offer" do
+    @basket.add_item(@choco)
+    @basket.add_item(@choco)
+
+    @basket.total_price_without_saving.should == 200
+    @basket.discount_saving.should == 100
+    @basket.total_price_with_saving.should == 100
+  end  
   
 end

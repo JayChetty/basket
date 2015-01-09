@@ -17,8 +17,8 @@ describe "SavingCalculator" do
     apple = Item.new(1, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
-    items = [offer1,offer2]
-    saving_calc = SavingCalculator.new(items)
+    offers = [offer1,offer2]
+    saving_calc = SavingCalculator.new(offers)
     saving_calc.offer_found(offer1, [choco, choco, apple]).should == true
   end 
 
@@ -27,8 +27,8 @@ describe "SavingCalculator" do
     apple = Item.new(1, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
-    items = [offer1,offer2]
-    saving_calc = SavingCalculator.new(items)
+    offers = [offer1,offer2]
+    saving_calc = SavingCalculator.new(offers)
     saving_calc.offer_found(offer1, [choco, apple]).should == false
   end
 
@@ -37,8 +37,8 @@ describe "SavingCalculator" do
     apple = Item.new(1, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
-    items = [offer1,offer2]
-    saving_calc = SavingCalculator.new(items)
+    offers = [offer1,offer2]
+    saving_calc = SavingCalculator.new(offers)
     saving_calc.offer_found(offer2, [apple, apple]).should == true
   end  
 
@@ -47,8 +47,20 @@ describe "SavingCalculator" do
     apple = Item.new(1, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
-    items = [offer1,offer2]
-    saving_calc = SavingCalculator.new(items)
-    items.should == [offer1,offer2]
-  end   
+    offers = [offer1,offer2]
+    saving_calc = SavingCalculator.new(offers)
+    items = [apple, apple]
+    saving_calc.offer_found(offer2, items )
+    items.should == [apple, apple]
+  end 
+
+  # it "should be able to find offers that match a given list of items" do
+  #   choco = Item.new(1, "Choco", 100)
+  #   apple = Item.new(1, "Apple", 50)
+  #   offer1 = Offer.new([choco,choco], 150)
+  #   offer2 = Offer.new([apple,apple], 75)
+  #   offers = [offer1,offer2]
+  #   saving_calc = SavingCalculator.new(offers)
+  #   saving_calc.found_offers.should == [offer1]
+  # end    
 end

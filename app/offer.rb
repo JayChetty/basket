@@ -12,7 +12,7 @@ class Offer
   end
 
   def total_standard_price
-    item_prices.reduce do |sum,price|
+    item_prices.reduce(0) do |sum,price|
       sum + price
     end
   end

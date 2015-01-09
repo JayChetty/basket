@@ -1,5 +1,5 @@
-require_relative './item.rb'
-require_relative './basket.rb'
+require_relative '../app/item.rb'
+require_relative '../app/basket.rb'
 
 describe Basket do
   it "should be created with no items" do

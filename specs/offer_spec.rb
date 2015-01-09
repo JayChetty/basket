@@ -1,5 +1,5 @@
-require_relative './offer.rb'
-require_relative './item.rb'
+require_relative '../app/offer.rb'
+require_relative '../app/item.rb'
 
 describe Offer do
   it "should be created with multiple items and price" do

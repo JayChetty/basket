@@ -1,6 +1,6 @@
-require_relative './offer.rb'
-require_relative './item.rb'
-require_relative './saving_calculator'
+require_relative '../app/offer.rb'
+require_relative '../app/item.rb'
+require_relative '../app/saving_calculator'
 
 describe "SavingCalculator" do 
   it "should be created with list of all offers" do
@@ -96,6 +96,17 @@ describe "SavingCalculator" do
     items = [apple, choco, apple, choco, apple, apple]
     saving_calc = SavingCalculator.new(offers)
     saving_calc.found_offers(items).should == [offer1, offer2, offer2]
-  end  
+  end
+
+  it "should be able to show the total saving" do
+    choco = Item.new(1, "Choco", 100)
+    apple = Item.new(1, "Apple", 50)
+    offer1 = Offer.new([choco,choco], 150)#saving of 50
+    offer2 = Offer.new([apple,apple], 75)#saving of 25
+    offers = [offer1,offer2]
+    items = [apple, choco, apple, choco, apple, apple]
+    saving_calc = SavingCalculator.new(offers)
+    saving_calc.amount_saved(items).should == (50 + 25 + 25)
+  end 
 
 end

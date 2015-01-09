@@ -21,6 +21,7 @@ class SavingCalculator
     found_offers = []
     @offers.each do |offer|
       might_find_offer = true
+      #loop until offer not found in case multiple of same offers
       while might_find_offer
         if offer_found(offer,copy_items)
           found_offers.push(offer)
@@ -35,5 +36,11 @@ class SavingCalculator
       end
     end
     found_offers
+  end
+
+  def amount_saved(items)
+    found_offers(items).reduce(0) do |sum,offer|
+      sum + offer.saving
+    end
   end
 end

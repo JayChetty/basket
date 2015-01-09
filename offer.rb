@@ -1,5 +1,5 @@
 class Offer
-  attr_reader :price
+  attr_reader :price, :items
   def initialize(items, price)
     @items = items
     @price = price

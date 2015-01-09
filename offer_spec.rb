@@ -29,6 +29,7 @@ describe Offer do
     item = Item.new(1, "Choco", 100)
     offer = Offer.new([item,item], 150)
     offer.saving.should == 50
-  end  
+  end
+
   
 end

@@ -36,6 +36,29 @@ describe "checking out a basket" do
     @basket.total_price_without_saving.should == 200
     @basket.discount_saving.should == 100
     @basket.total_price_with_saving.should == 100
-  end  
+  end
+
+  it "should pick up multiple offers" do
+    @basket.add_item(@choco)
+    @basket.add_item(@choco)
+    @basket.add_item(@orange)
+    @basket.add_item(@drink)
+
+    @basket.total_price_without_saving.should == 425 #100 + 100 + 75 + 150
+    @basket.discount_saving.should == 125 #100 + 25
+    @basket.total_price_with_saving.should == 300
+  end
+
+  it "should pick up multiple of same offers" do
+    @basket.add_item(@choco)
+    @basket.add_item(@choco)
+    @basket.add_item(@choco)
+    @basket.add_item(@choco)
+
+
+    @basket.total_price_without_saving.should == 400
+    @basket.discount_saving.should == 200
+    @basket.total_price_with_saving.should == 200
+  end 
   
 end

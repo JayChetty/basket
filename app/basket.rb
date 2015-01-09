@@ -16,7 +16,7 @@ class Basket
   end
 
   def total_price_without_saving
-    item_prices.reduce do |sum,price|
+    item_prices.reduce(0) do |sum,price|
       sum + price
     end
   end

@@ -35,22 +35,22 @@ describe "SavingCalculator" do
     items.should == [@apple, @apple]
   end 
 
-  it "should be able to find offers that match a given list of items" do
+  it "should be able to find offers that match a given list of items single" do
     items = [@apple, @apple]
     @saving_calc.found_offers(items).should == [@offer2]
   end
 
-  it "should be able to find offers that match a given list of items" do
+  it "should be able to find offers that match a given list of items multiple" do
     items = [@apple, @choco, @apple, @choco]
     @saving_calc.found_offers(items).should == [@offer1, @offer2]
   end
 
-  it "should be able to find offers that match a given list of items" do
+  it "should be able to find offers that match a given list of items multiple 2" do
     items = [@apple, @choco, @apple, @choco, @apple]
     @saving_calc.found_offers(items).should == [@offer1, @offer2]
   end
 
-  it "should be able to find offers that match a given list of items" do
+  it "should be able to find offers that match a given list of items multiple same" do
     items = [@apple, @choco, @apple, @choco, @apple, @apple]
     @saving_calc.found_offers(items).should == [@offer1, @offer2, @offer2]
   end

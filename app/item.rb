@@ -7,4 +7,8 @@ class Item
     @name = name
     @price = price
   end
+
+  def ==(other_object)
+    @id == other_object.id
+  end
 end

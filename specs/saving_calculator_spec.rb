@@ -5,7 +5,7 @@ require_relative '../app/saving_calculator'
 describe "SavingCalculator" do 
   it "should be created with list of all offers" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     saving_calc = SavingCalculator.new([offer1,offer2])
@@ -14,7 +14,7 @@ describe "SavingCalculator" do
 
   it "should be able to check if an offer is found in a list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -24,7 +24,7 @@ describe "SavingCalculator" do
 
   it "should be able to check if an offer is not found in a list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -34,7 +34,7 @@ describe "SavingCalculator" do
 
   it "should be able to check if an offer is not found in a list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -44,7 +44,7 @@ describe "SavingCalculator" do
 
    it "should not alter original list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -56,7 +56,7 @@ describe "SavingCalculator" do
 
   it "should be able to find offers that match a given list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -67,7 +67,7 @@ describe "SavingCalculator" do
 
   it "should be able to find offers that match a given list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -78,7 +78,7 @@ describe "SavingCalculator" do
 
   it "should be able to find offers that match a given list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -89,7 +89,7 @@ describe "SavingCalculator" do
 
   it "should be able to find offers that match a given list of items" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)
     offer2 = Offer.new([apple,apple], 75)
     offers = [offer1,offer2]
@@ -100,7 +100,7 @@ describe "SavingCalculator" do
 
   it "should be able to show the total saving" do
     choco = Item.new(1, "Choco", 100)
-    apple = Item.new(1, "Apple", 50)
+    apple = Item.new(2, "Apple", 50)
     offer1 = Offer.new([choco,choco], 150)#saving of 50
     offer2 = Offer.new([apple,apple], 75)#saving of 25
     offers = [offer1,offer2]
